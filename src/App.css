@@ -1,0 +1,206 @@
+a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+.flex_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+nav {
+  height: 60px;
+  padding: 25px 30px 15px 30px;
+  margin-bottom: 44px;
+  box-shadow: 0px 0.5px 20px rgb(67, 185, 99);
+}
+
+#home-name {
+  color: black;
+  font-size: 28px;
+}
+
+.cprx_logo {
+  height: 44px;
+  width: 44px;
+  margin-right: 14px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+}
+
+.info {
+  color: rgb(125, 127, 124);
+}
+
+#swap-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 464px;
+  height: 280px;
+  padding: 10px;
+  margin: 25px 0 30px 0;
+  border-radius: 12px;
+
+  background-color: rgb(5, 46, 10);
+
+  font-size: 16px;
+}
+
+#swap-name {
+  height: 25px;
+  padding: 0 10px;
+  font-size: 23px;
+  color: rgb(255, 255, 255);
+}
+
+.swap-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 72px;
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(0, 104, 0);
+
+  color: rgb(222, 240, 213);
+  font-size: 28px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input {
+  cursor: text;
+}
+
+input::placeholder {
+  color: rgb(222, 240, 213);
+}
+
+input:focus {
+  outline: none;
+}
+
+#arrow {
+  padding: 4px;
+  border-radius: 8px;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  margin-top: -14px;
+  margin-bottom: -14px;
+  left: calc(50% - 16px);
+  background-color: rgb(38, 104, 44);
+  border: 2px solid rgb(4, 80, 44);
+  z-index: 2;
+}
+
+#swap-currency-output {
+  height: 72px;
+
+  border: none;
+  border-radius: 15px;
+  background-color: rgb(0, 104, 0);
+
+  color: rgb(222, 240, 213);
+  font-size: 28px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#swap-currency-button {
+  width: 50%;
+  height: 55px;
+
+  border: none;
+  border-radius: 18px;
+  background-color: rgb(38, 196, 83);
+
+  font-size: 20px;
+  color: rgb(3, 43, 3);
+
+  align-self: flex-end;
+}
+
+#swap-currency-button:hover {
+  background-color: rgb(35, 180, 83);
+}
+
+#result-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 464px;
+  height: 100px;
+  padding: 20px;
+  border-top: 1px solid rgb(38, 196, 83);
+
+  font-size: 20px;
+}
+
+#result-name {
+  height: 25px;
+  padding: 0 10px;
+  margin-bottom: 14px;
+  font-size: 23px;
+  background-color: rgb(5, 46, 10);
+  color: white;
+}
+
+#result-output,
+#result-price {
+  box-shadow: inset 0 -40px 0 #d9fcdb;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  background-color: green;
+}
+
+.footer-logo {
+  height: 37px;
+  width: 37px;
+  margin-right: 14px;
+}
+
+#korea-logo {
+  height: 28px;
+}
+
+#copyright {
+  color: white;
+}
