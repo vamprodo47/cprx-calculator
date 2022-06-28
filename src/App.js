@@ -2,7 +2,7 @@ import "./App.css";
 import Web3 from "web3";
 import dotenv from "dotenv";
 import uniswapABI from "./contract/uniswapABI.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 dotenv.config();
 
@@ -14,6 +14,8 @@ const uniswapContract = new web3.eth.Contract(
 );
 
 function App() {
+  const [pooledCprx, setPooledCprx] = useState(0);
+  const [pooledUsdt, setPooledUsdt] = useState(0);
   const [usdt, setUsdt] = useState(0);
   const [cprx, setCprx] = useState(0);
   const [usdtResult, setUsdtResult] = useState("Enter Amount of CPRX");
@@ -37,7 +39,7 @@ function App() {
       setCprxResult(0);
       setUsdtResult("Enter Amount of CPRX");
 
-      return alert("Please enter the amount of CPRX!");
+      return alert("❗️ Please enter the amount of CPRX");
     }
 
     if (cprx > pooledCprx) {
@@ -45,9 +47,7 @@ function App() {
       setCprxResult(0);
       setUsdtResult("Enter Amount of CPRX");
 
-      return alert(
-        `CPRX Balance should be under ${pooledCprx.toFixed(5)} CPRX!`
-      );
+      return alert(`❗️ CPRX Balance is under ${pooledCprx.toFixed(5)} CPRX`);
     }
 
     // console.log(
@@ -72,6 +72,20 @@ function App() {
     firstTypeusdtToCprx(cprx);
   };
 
+  useEffect(() => {
+    uniswapContract.methods
+      .getReserves()
+      .call()
+      .then((data) => {
+        setPooledCprx(
+          Number(Web3.utils.fromWei(data._reserve0, "ether")).toFixed(5)
+        );
+        setPooledUsdt(
+          Number(Web3.utils.fromWei(data._reserve1, "Mwei")).toFixed(5)
+        );
+      });
+  }, []);
+
   return (
     <div id="wrapper" className="flex_container">
       <nav>
@@ -95,6 +109,51 @@ function App() {
         </div>
         <div className="info">
           Please note that this feature does not include fees.
+        </div>
+        <div id="pool-page">
+          <div>
+            <span id="pool-name"> Uniswap Pool </span>
+          </div>
+          <div>
+            <a
+              id="uniswap"
+              href="https://app.uniswap.org/#/swap?outputCurrency=0xc6e145421fd494b26dcf2bfeb1b02b7c5721978f&chain=mainnet"
+            >
+              🦄 CPRX Uniswap
+            </a>
+            <a
+              id="chart"
+              href="https://www.dextools.io/app/ether/pair-explorer/0xc4f0ff5e1ddc6752a13bf0f59ad2beb2fc25f175"
+            >
+              📈 CPRX-USDT Chart
+            </a>
+            <br />
+            <span>
+              Pooled CPRX:
+              <span id="pool-cprx"> {pooledCprx} </span>
+              CPRX
+            </span>
+          </div>
+          <div>
+            <span>
+              Pooled USDT:
+              <span id="pool-usdt"> {pooledUsdt} </span>
+              USDT
+            </span>
+          </div>
+          <br />
+          <span>
+            CPRX Price:
+            <span id="pool-usdt"> {(pooledUsdt / pooledCprx).toFixed(5)} </span>
+            (USDT/CPRX)
+          </span>
+        </div>
+        <div className="info">Get Info about USDT required for purchase</div>
+        <div id="swap-mid-info" className="info">
+          and CPRX price after trade.
+        </div>
+        <div className="info">
+          Enter the quantity you want to buy in the CPRX input box.
         </div>
         <div id="swap-page">
           <div id="swap-name">Calculator</div>

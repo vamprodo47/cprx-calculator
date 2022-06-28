@@ -48,10 +48,54 @@ main {
   justify-content: start;
   align-items: center;
   height: 100%;
+  margin-bottom: 150px;
 }
 
 .info {
   color: rgb(125, 127, 124);
+}
+
+#pool-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 464px;
+  height: 190px;
+  padding: 40px 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-top: 1px solid rgb(38, 196, 83);
+  border-bottom: 1px solid rgb(38, 196, 83);
+
+  font-size: 20px;
+}
+
+#pool-name {
+  height: 25px;
+  padding: 0 10px;
+  margin-bottom: 14px;
+  font-size: 23px;
+  background-color: rgb(5, 46, 10);
+  color: white;
+}
+
+#uniswap,
+#chart {
+  color: black;
+}
+
+#uniswap:hover,
+#chart:hover {
+  color: rgb(0, 104, 0);
+}
+
+#pool-cprx,
+#pool-usdt {
+  box-shadow: inset 0 -40px 0 #d9fcdb;
+}
+
+#swap-mid-info {
+  margin-bottom: 10px;
 }
 
 #swap-page {
@@ -61,7 +105,7 @@ main {
   width: 464px;
   height: 280px;
   padding: 10px;
-  margin: 25px 0 30px 0;
+  margin: 30px 0;
   border-radius: 12px;
 
   background-color: rgb(5, 46, 10);
@@ -159,7 +203,7 @@ input:focus {
   justify-content: space-around;
   width: 464px;
   height: 100px;
-  padding: 20px;
+  padding: 25px;
   border-top: 1px solid rgb(38, 196, 83);
 
   font-size: 20px;
@@ -185,7 +229,7 @@ footer {
   align-items: center;
   height: 60px;
   position: absolute;
-  bottom: -60px;
+  bottom: -80px;
   left: 0;
   right: 0;
   background-color: green;
